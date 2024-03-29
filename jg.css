@@ -1,0 +1,804 @@
+.sides {
+    animation: 0.7s curtain cubic-bezier(.86, 0, .07, 1) 0.4s both;
+
+    display: grid;
+    grid-template-columns: 50vw 50vw;
+}
+
+
+@keyframes curtain {
+    0% {
+        grid-gap: 100vw;
+    }
+
+    100% {
+        grid-gap: 0;
+    }
+}
+
+
+
+
+
+
+
+
+/*  Popup crea    */
+
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 23px;
+    right: 28px;
+    width: 280px;
+  }
+  
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+  
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+  
+  /* Full-width input fields */
+  .form-container input[type=text], .form-container input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }
+  
+  /* When the inputs get focus, do something */
+  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+  }
+  
+  /* Set a style for the submit/login button */
+  .form-container .btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+  }
+  
+  /* Add a red background color to the cancel button */
+  .form-container .cancel {
+    background-color: red;
+  }
+  
+  /* Add some hover effects to buttons */
+  .form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+  }
+
+
+  .note{
+    font-size: 60%;
+    color: red;
+  }
+.a{
+padding: 25px;
+border-style: solid;
+border-color: blue;
+margin: 10px;
+}  
+
+
+#frame {
+    margin: 0 auto;
+    width: 800px;
+    max-width: 100%;
+    text-align: center;
+}
+
+#frame input[type=radio] {
+    display: none;
+}
+
+#frame label {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#slides {
+    padding: 10px;
+    border: 5px solid #0F0;
+    background: #00F;
+    position: relative;
+    z-index: 1;
+}
+
+#overflow {
+    width: 100%;
+    overflow: hidden;
+}
+
+#frame1:checked~#slides .inner {
+    margin-left: 0;
+}
+
+#frame2:checked~#slides .inner {
+    margin-left: -100%;
+}
+
+#frame3:checked~#slides .inner {
+    margin-left: -200%;
+}
+
+#frame4:checked~#slides .inner {
+    margin-left: -300%;
+}
+
+#slides .inner {
+    transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+    width: 400%;
+    line-height: 0;
+    height: 300px;
+}
+
+#slides .frame {
+    width: 25%;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #FFF;
+}
+
+#slides .frame_1 {
+    background: #90C;
+}
+
+#slides .frame_2 {
+    background: #F90;
+}
+
+#slides .frame_3 {
+    background: #606;
+}
+
+#slides .frame_4 {
+    background: #C00;
+}
+
+#controls {
+    margin: -180px 0 0 0;
+    width: 100%;
+    height: 50px;
+    z-index: 3;
+    position: relative;
+}
+
+#controls label {
+    transition: opacity 0.2s ease-out;
+    display: none;
+    width: 50px;
+    height: 50px;
+    opacity: .4;
+}
+
+#controls label:hover {
+    opacity: 1;
+}
+
+#frame1:checked~#controls label:nth-child(2),
+#frame2:checked~#controls label:nth-child(3),
+#frame3:checked~#controls label:nth-child(4),
+#frame4:checked~#controls label:nth-child(1) {
+    background:
+        url(https://image.flaticon.com/icons/svg/130/130884.svg) no-repeat;
+    float: right;
+    margin: 0 -50px 0 0;
+    display: block;
+}
+
+#frame1:checked~#controls label:nth-last-child(2),
+#frame2:checked~#controls label:nth-last-child(3),
+#frame3:checked~#controls label:nth-last-child(4),
+#frame4:checked~#controls label:nth-last-child(1) {
+    background:
+        url(https://image.flaticon.com/icons/svg/130/130882.svg) no-repeat;
+    float: left;
+    margin: 0 0 0 -50px;
+    display: block;
+}
+
+#bullets {
+    margin: 150px 0 0;
+    text-align: center;
+}
+
+#bullets label {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background: #ccc;
+    margin: 0 10px;
+}
+
+#frame1:checked~#bullets label:nth-child(1),
+#frame2:checked~#bullets label:nth-child(2),
+#frame3:checked~#bullets label:nth-child(3),
+#frame4:checked~#bullets label:nth-child(4) {
+    background: #444;
+}
+
+@media screen and (max-width: 900px) {
+
+    #frame1:checked~#controls label:nth-child(2),
+    #frame2:checked~#controls label:nth-child(3),
+    #frame3:checked~#controls label:nth-child(4),
+    #frame4:checked~#controls label:nth-child(1),
+    #frame1:checked~#controls label:nth-last-child(2),
+    #frame2:checked~#controls label:nth-last-child(3),
+    #frame3:checked~#controls label:nth-last-child(4),
+    #frame4:checked~#controls label:nth-last-child(1) {
+        margin: 0;
+    }
+
+    #slides {
+        max-width: calc(100% - 140px);
+        margin: 0 auto;
+    }
+}
+
+
+#frame {
+			margin: 0 auto;
+			width: 800px;
+			max-width: 100%;
+			text-align: center;
+		}
+
+		#frame input[type=radio] {
+			display: none;
+		}
+
+		#frame label {
+			cursor: pointer;
+			text-decoration: none;
+		}
+
+		#slides {
+			padding: 10px;
+			border: 5px solid #0F0;
+			background: #00F;
+			position: relative;
+			z-index: 1;
+		}
+
+		#overflow {
+			width: 100%;
+			overflow: hidden;
+		}
+
+		#frame1:checked~#slides .inner {
+			margin-left: 0;
+		}
+
+		#frame2:checked~#slides .inner {
+			margin-left: -100%;
+		}
+
+		#frame3:checked~#slides .inner {
+			margin-left: -200%;
+		}
+
+		#frame4:checked~#slides .inner {
+			margin-left: -300%;
+		}
+
+		#slides .inner {
+			transition: margin-left 800ms cubic-bezier(0.770, 0.000, 0.175, 1.000);
+			width: 400%;
+			line-height: 0;
+			height: 300px;
+		}
+
+		#slides .frame {
+			width: 25%;
+			float: left;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+			color: #FFF;
+		}
+
+		#slides .frame_1 {
+			background: #90C;
+		}
+
+		#slides .frame_2 {
+			background: #F90;
+		}
+
+		#slides .frame_3 {
+			background: #606;
+		}
+
+		#slides .frame_4 {
+			background: #C00;
+		}
+
+		#controls {
+			margin: -180px 0 0 0;
+			width: 100%;
+			height: 50px;
+			z-index: 3;
+			position: relative;
+		}
+
+		#controls label {
+			transition: opacity 0.2s ease-out;
+			display: none;
+			width: 50px;
+			height: 50px;
+			opacity: .4;
+		}
+
+		#controls label:hover {
+			opacity: 1;
+		}
+
+		#frame1:checked~#controls label:nth-child(2),
+		#frame2:checked~#controls label:nth-child(3),
+		#frame3:checked~#controls label:nth-child(4),
+		#frame4:checked~#controls label:nth-child(1) {
+			background:
+				url(https://image.flaticon.com/icons/svg/130/130884.svg) no-repeat;
+			float: right;
+			margin: 0 -50px 0 0;
+			display: block;
+		}
+
+		#frame1:checked~#controls label:nth-last-child(2),
+		#frame2:checked~#controls label:nth-last-child(3),
+		#frame3:checked~#controls label:nth-last-child(4),
+		#frame4:checked~#controls label:nth-last-child(1) {
+			background:
+				url(https://image.flaticon.com/icons/svg/130/130882.svg) no-repeat;
+			float: left;
+			margin: 0 0 0 -50px;
+			display: block;
+		}
+
+		#bullets {
+			margin: 150px 0 0;
+			text-align: center;
+		}
+
+		#bullets label {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			border-radius: 100%;
+			background: #ccc;
+			margin: 0 10px;
+		}
+
+		#frame1:checked~#bullets label:nth-child(1),
+		#frame2:checked~#bullets label:nth-child(2),
+		#frame3:checked~#bullets label:nth-child(3),
+		#frame4:checked~#bullets label:nth-child(4) {
+			background: #444;
+		}
+
+		@media screen and (max-width: 900px) {
+
+			#frame1:checked~#controls label:nth-child(2),
+			#frame2:checked~#controls label:nth-child(3),
+			#frame3:checked~#controls label:nth-child(4),
+			#frame4:checked~#controls label:nth-child(1),
+			#frame1:checked~#controls label:nth-last-child(2),
+			#frame2:checked~#controls label:nth-last-child(3),
+			#frame3:checked~#controls label:nth-last-child(4),
+			#frame4:checked~#controls label:nth-last-child(1) {
+				margin: 0;
+			}
+
+			#slides {
+				max-width: calc(100% - 140px);
+				margin: 0 auto;
+			}
+		}
+
+
+
+
+
+
+
+
+
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: "Arial Black", sans-serif;
+}
+
+.intro {
+    height: 58%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.sides {
+    position: relative;
+}
+
+.side {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 5vw;
+}
+
+.monkey {
+    background-color: #dcc9a1;
+    color: #534325;
+}
+
+.robot {
+    background-color: #1b636f;
+    color: #ffffff;
+    flex-direction: column-reverse;
+}
+
+.name {
+    margin: 0.3em;
+}
+
+.emoji {
+    font-size: 3em;
+}
+
+.versus {
+    position: absolute;
+    width: 8vw;
+    height: 8vw;
+    background: #ffffff;
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.4vw;
+    color: #123456;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #1b636f #dcc9a1 #dcc9a1 #1b636f;
+    transform: rotate(-45deg);
+}
+
+.versus span {
+    transform: rotate(35deg);
+}
+
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background: linear-gradient(to right, #1A202C 0%, #1A202C 100%);
+    font-size: 12px;
+}
+
+body,
+button,
+input {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.background {
+    display: flex;
+    min-height: 100vh;
+}
+
+.container {
+    flex: 0 1 700px;
+    margin: auto;
+    padding: 10px;
+}
+
+.screen {
+    position: relative;
+    background: #3e3e3e;
+    border-radius: 15px;
+}
+
+.screen:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    bottom: 0;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .4);
+    z-index: -1;
+}
+
+.screen-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: #4d4d4f;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.screen-header-left {
+    margin-right: auto;
+}
+
+.screen-header-button {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    margin-right: 3px;
+    border-radius: 8px;
+    background: white;
+}
+
+.screen-header-button.close {
+    background: #6c6b6c;
+}
+
+.screen-header-button.maximize {
+    background: #e8e925;
+}
+
+.screen-header-button.minimize {
+    background: #74c54f;
+}
+
+.screen-header-right {
+    display: flex;
+}
+
+.screen-header-ellipsis {
+    width: 3px;
+    height: 3px;
+    margin-left: 2px;
+    border-radius: 8px;
+    background: #999;
+}
+
+.screen-body {
+    display: flex;
+}
+
+.screen-body-item {
+    flex: 1;
+    padding: 50px;
+}
+
+.screen-body-item.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-title {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    color: #6c6b6c;
+    font-size: 26px;
+}
+
+.app-title:after {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 25px;
+    height: 4px;
+    background: #6c6b6c;
+}
+
+.app-contact {
+    margin-top: auto;
+    font-size: 8px;
+    color: #888;
+}
+
+.app-form-group {
+    margin-bottom: 15px;
+}
+
+.app-form-group.message {
+    margin-top: 40px;
+}
+
+.app-form-group.buttons {
+    margin-bottom: 0;
+    text-align: right;
+}
+
+.app-form-control {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #666;
+    color: #ddd;
+    font-size: 14px;
+    text-transform: uppercase;
+    outline: none;
+    transition: border-color .2s;
+}
+
+.app-form-control::placeholder {
+    color: #666;
+}
+
+.app-form-control:focus {
+    border-bottom-color: #ddd;
+}
+
+.app-form-button {
+    background: none;
+    border: none;
+    color: #6c6b6c;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+}
+
+.app-form-button:hover {
+    color: #6c6b6c;
+}
+
+.credits {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: #ffa4bd;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.credits-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.dribbble {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+
+@media screen and (max-width: 520px) {
+    .screen-body {
+        flex-direction: column;
+    }
+
+    .screen-body-item.left {
+        margin-bottom: 30px;
+    }
+
+    .app-title {
+        flex-direction: row;
+    }
+
+    .app-title span {
+        margin-right: 12px;
+    }
+
+    .app-title:after {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .screen-body {
+        padding: 40px;
+    }
+
+    .screen-body-item {
+        padding: 0;
+    }
+}
+
+.main-navbar {
+    border-bottom: 1px solid #ccc;
+}
+
+.main-navbar .top-navbar {
+    background-color: #f07d2873;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.main-navbar .top-navbar .brand-name {
+    color: #fff;
+}
+
+.main-navbar .top-navbar .nav-link {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.main-navbar .top-navbar .dropdown-menu {
+    padding: 0px 0px;
+    border-radius: 0px;
+}
+
+.main-navbar .top-navbar .dropdown-menu .dropdown-item {
+    padding: 8px 16px;
+    border-bottom: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.main-navbar .top-navbar .dropdown-menu .dropdown-item i {
+    width: 20px;
+    text-align: center;
+    color: #f0282878;
+    font-size: 14px;
+}
+
+.main-navbar .navbar {
+    padding: 0px;
+    background-color: #ddd;
+}
+
+.main-navbar .navbar .nav-item .nav-link {
+    padding: 8px 20px;
+    color: #000;
+    font-size: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+    .main-navbar .top-navbar .nav-link {
+        font-size: 12px;
+        padding: 8px 10px;
+    }
+}
